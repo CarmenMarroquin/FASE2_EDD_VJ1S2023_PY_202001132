@@ -64,7 +64,7 @@ func main() {
 	app.Post("/login", func(c *fiber.Ctx) error {
 		var usuario Peticiones.Login
 		c.BodyParser(&usuario)
-		if usuario.Username == "ADMIN_201700918" && usuario.Password == "admin" {
+		if usuario.Username == "ADMIN_202001132" && usuario.Password == "Admin" {
 			return c.JSON(&fiber.Map{
 				"status": "400",
 			})

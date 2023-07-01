@@ -37,16 +37,20 @@ export const Login = () => {
 
 
     return(
-        <div className="form-signin">
-            <div className="text-center">
+        <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+           
                   <form onSubmit={handleSubmit} className="card card-body">
-                    <h1 className="h3 mb-3 fw-normal">Inicio de Sesion EDD Creative</h1>
-                    <label htmlFor="inputEmail" className="visually-hidden">Usuario</label>
+
+
+
+                    
+                    <label  className="form-label">Usuario</label>
                     <input type="text" id="userI" className="form-control" placeholder="Nombre Usuario" required
                     onChange={e => setUser(e.target.value)} 
                     value={user}  
                     autoFocus/>
                     <br/>
+                    <label  className="form-label">Contraseña</label>
                     <label htmlFor="inputPassword" className="visually-hidden">Password</label>
                     <input type="password" id="passI" className="form-control" placeholder="Password" aria-describedby="passwordHelpInline" //required 
                      onChange={e => setPass(e.target.value)}
@@ -54,10 +58,15 @@ export const Login = () => {
                      autoFocus/>
                     <br />
                     <button className="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesion</button>
-                    <p className="mt-5 mb-3 text-muted">EDD 201700918</p>
+                  
                     <br/>
                   </form>
-            </div>
+            
         </div>
     );
 }
+
+
+
+
+

@@ -3,7 +3,7 @@ import '../css/administrador.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Reportes = () => {
-    const [imagen, setImagen] = useState('https://yakurefu.com/wp-content/uploads/2020/02/Chi_by_wallabby.jpg')
+    const [imagen, setImagen] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWiYNM1A0gP6qy76cM_kChvvUOoq8Nv5Qi1A&usqp=CAU')
     const salir = (e) => {
         e.preventDefault();
         console.log("Listo")
@@ -45,17 +45,17 @@ export const Reportes = () => {
                   <form className="card card-body">
                     <h1 className="h3 mb-3 fw-normal">Reportes Administrador</h1>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-primary" onClick={reporteGrafo}>Grafo</button></center>
+                    <center><button className="btn btn-success" onClick={reporteGrafo}>Grafo</button></center>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-primary" onClick={reporteArbol}>Arbol AVL</button></center>
+                    <center><button className="btn btn-success" onClick={reporteArbol}>Arbol AVL</button></center>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-primary" onClick={reporteBlockchain}>Facturas</button></center>
+                    <center><button className="btn btn-success" onClick={reporteBlockchain}>Facturas</button></center>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-success" onClick={salir}>Salir</button></center>
+                    <center><button className="btn btn-danger" onClick={salir}>Salir</button></center>
                     <br/>
                     <center><img src={imagen} width="350" height="350" alt='some value' /></center>
                     <br/>
-                    <p className="mt-5 mb-3 text-muted">EDD 201700918</p>
+                
                     <br/>
                   </form>
             </div>

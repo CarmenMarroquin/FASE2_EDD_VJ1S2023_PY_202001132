@@ -7,10 +7,15 @@ body {
   flex-direction: row;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #FFEFBA;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #d1721a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #d85151, #d37d55);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e46868, #dbb63c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: auto;
+}
+.card{
+ background: none;
+  border: none;
+
 }
 
 .form-signin1 {
@@ -50,11 +55,8 @@ body {
   border-top-right-radius: 0;
 }
 
-.card {
-  border: 2px solid black;
-  border-radius: 15px;
-}
+
 
 .button {
-    background: #FFEFBA;
+    background: #34a547;
 }
