@@ -45,9 +45,7 @@ Si encuentras algún problema técnico o tienes alguna pregunta adicional, comun
 Proporciona información de contacto, como una dirección de correo electrónico o un número de teléfono.
 Actualizaciones y Novedades
 
-Mantén a los usuarios informados sobre las actualizaciones de la aplicación y las nuevas características que se hayan agregado.
-Proporciona enlaces a documentación adicional o recursos de aprendizaje.
-Conclusiones
+
 
 Concluye el manual de usuario con un mensaje final y
 
