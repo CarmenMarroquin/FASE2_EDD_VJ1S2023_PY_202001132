@@ -138,6 +138,148 @@ func (lista *Lista) Buscar(usuario, contraseña1 string) bool {
 }
  este seria un ejemplo esta es la lista
 
+
+ ejemplo de matriz:
+
+ type Matriz struct {
+	Raiz        *NodoMatriz
+	ImageWidth  int
+	ImageHeight int
+	PixelWidth  int
+	PixelHeight int
+}
+
+func (m *Matriz) buscarC(x int) *NodoMatriz {
+	aux := m.Raiz
+	for aux != nil {
+		if aux.PosX == x {
+			return aux
+		}
+		aux = aux.Siguiente
+	}
+	return nil
+}
+
+func (m *Matriz) buscarF(y int) *NodoMatriz {
+	aux := m.Raiz
+	for aux != nil {
+		if aux.PosY == y {
+			return aux
+		}
+		aux = aux.Abajo
+	}
+	return nil
+}
+
+func (m *Matriz) insertarColumna(nuevoNodo *NodoMatriz, nodoRaiz *NodoMatriz) *NodoMatriz {
+	temp := nodoRaiz
+	piv := false
+	for { // while(true) [2][2][2][5][5] -> [N]
+		if temp.PosX == nuevoNodo.PosX {
+			temp.PosY = nuevoNodo.PosY
+			temp.Color = nuevoNodo.Color
+			return temp
+		} else if temp.PosX > nuevoNodo.PosX {
+			piv = true
+			break
+		}
+		if temp.Siguiente != nil {
+			temp = temp.Siguiente
+		} else {
+			break
+		}
+	}
+	if piv {
+		/*Asumir que nuevo = C1*/
+		nuevoNodo.Siguiente = temp          // C2
+		temp.Anterior.Siguiente = nuevoNodo // siguiente de raiz ahora es C1
+		nuevoNodo.Anterior = temp.Anterior  // Anterior Raiz
+		temp.Anterior = nuevoNodo           //
+	} else {
+		temp.Siguiente = nuevoNodo
+		nuevoNodo.Anterior = temp
+	}
+	return nuevoNodo
+}
+
+func (m *Matriz) insertarFila(nuevoNodo *NodoMatriz, nodoRaiz *NodoMatriz) *NodoMatriz {
+	temp := nodoRaiz
+	piv := false
+	for { //
+		if temp.PosY == nuevoNodo.PosY {
+			temp.PosX = nuevoNodo.PosX
+			temp.Color = nuevoNodo.Color
+			return temp
+		} else if temp.PosY > nuevoNodo.PosY {
+			piv = true
+			break
+		}
+		if temp.Abajo != nil {
+			temp = temp.Abajo
+		} else {
+			break
+		}
+	}
+	if piv {
+		/*Asumir que nuevo = C1*/
+		nuevoNodo.Abajo = temp         // C2
+		temp.Arriba.Abajo = nuevoNodo  // siguiente de raiz ahora es C1
+		nuevoNodo.Arriba = temp.Arriba // Anterior Raiz
+		temp.Arriba = nuevoNodo        //
+	} else {
+		temp.Abajo = nuevoNodo
+		nuevoNodo.Arriba = temp
+	}
+	return nuevoNodo
+}
+
+func (m *Matriz) nuevaColumna(x int) *NodoMatriz {
+	col := "C" + strconv.Itoa(x) // C1
+	nuevoNodo := &NodoMatriz{PosX: x, PosY: -1, Color: col}
+	columna := m.insertarColumna(nuevoNodo, m.Raiz)
+	return columna
+}
+
+func (m *Matriz) nuevaFila(y int) *NodoMatriz {
+	col := "F" + strconv.Itoa(y) // C1
+	nuevoNodo := &NodoMatriz{PosX: -1, PosY: y, Color: col}
+	fila := m.insertarFila(nuevoNodo, m.Raiz)
+	return fila
+}
+
+func (m *Matriz) Insertar_Elemento(x int, y int, color string) {
+	nuevoNodo := &NodoMatriz{PosX: x, PosY: y, Color: color}
+	nodoColumna := m.buscarC(x)
+	nodoFila := m.buscarF(y)
+	/*
+		1. Columna y Fila no Existe
+		2. Columna si existe pero Fila no
+		3. Fila si existe pero Columna no
+		4. Ambos existen
+	*/
+
+	if nodoColumna == nil && nodoFila == nil {
+		nodoColumna = m.nuevaColumna(x)
+		nodoFila = m.nuevaFila(y)
+		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
+		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
+	} else if nodoColumna != nil && nodoFila == nil {
+		nodoFila = m.nuevaFila(y)
+		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
+		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
+	} else if nodoColumna == nil && nodoFila != nil {
+		nodoColumna = m.nuevaColumna(x)
+		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
+		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
+	} else if nodoColumna != nil && nodoFila != nil {
+		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
+		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
+	} else {
+		fmt.Println("ERROR!!!!!!")
+	}
+}
+
+
 # Objetivos
 
 * Brindar la información necesaria para poder  representar la funcionalidad técnica de la estructura, diseño y definición del aplicativo.
