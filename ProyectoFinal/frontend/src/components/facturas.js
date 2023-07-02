@@ -58,10 +58,8 @@ export const Factura = () => {
                         </tbody>
                     </table>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-success" onClick={salir}>Salir</button></center>
-                    <br/>
-                    <p className="mt-5 mb-3 text-muted">EDD 201700918</p>
-                    <br/>
+                    <center><button className="btn btn-danger" onClick={salir}>Salir</button></center>
+                   
                   </form>
             </div>
           </div>
