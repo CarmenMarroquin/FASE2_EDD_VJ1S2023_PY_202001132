@@ -128,19 +128,23 @@ func (m *Matriz) Insertar_Elemento(x int, y int, color string) {
 	*/
 
 	if nodoColumna == nil && nodoFila == nil {
+		fmt.Println("Primer Caso")
 		nodoColumna = m.nuevaColumna(x)
 		nodoFila = m.nuevaFila(y)
 		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
 		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
 	} else if nodoColumna != nil && nodoFila == nil {
+		fmt.Println("Segundo Caso")
 		nodoFila = m.nuevaFila(y)
 		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
 		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
 	} else if nodoColumna == nil && nodoFila != nil {
+		fmt.Println("Tercer Caso")
 		nodoColumna = m.nuevaColumna(x)
 		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
 		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
 	} else if nodoColumna != nil && nodoFila != nil {
+		fmt.Println("Cuarto Caso")
 		nuevoNodo = m.insertarColumna(nuevoNodo, nodoFila)
 		nuevoNodo = m.insertarFila(nuevoNodo, nodoColumna)
 	} else {
@@ -324,9 +328,9 @@ func (m *Matriz) GenerarImagen(nombre_imagen string) {
 			x++
 		}
 		x_pixel = 0
-		auxFila = auxFila.Abajo
+
 		if auxFila != nil {
-			auxColumna = auxFila.Abajo
+			auxFila = auxFila.Abajo
 		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
@@ -387,7 +391,10 @@ func (m *Matriz) EscalaGrises(nombre_imagen string) {
 			x++
 		}
 		x_pixel = 0
-		auxFila = auxFila.Abajo
+
+		if auxFila != nil {
+			auxFila = auxFila.Abajo
+		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
 		}
@@ -434,7 +441,10 @@ func (m *Matriz) Negativo(nombre_imagen string) {
 			x++
 		}
 		x_pixel = 0
-		auxFila = auxFila.Abajo
+
+		if auxFila != nil {
+			auxFila = auxFila.Abajo
+		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
 		}
@@ -460,7 +470,10 @@ func (m *Matriz) RotacionDoble() {
 				auxColumna = auxColumna.Siguiente
 			}
 		}
-		auxFila = auxFila.Abajo
+
+		if auxFila != nil {
+			auxFila = auxFila.Abajo
+		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
 		}
@@ -481,7 +494,10 @@ func (m *Matriz) RotacionX() {
 				auxColumna = auxColumna.Siguiente
 			}
 		}
-		auxFila = auxFila.Abajo
+
+		if auxFila != nil {
+			auxFila = auxFila.Abajo
+		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
 		}
@@ -502,7 +518,10 @@ func (m *Matriz) RotacionY() {
 				auxColumna = auxColumna.Siguiente
 			}
 		}
-		auxFila = auxFila.Abajo
+
+		if auxFila != nil {
+			auxFila = auxFila.Abajo
+		}
 		if auxFila != nil {
 			auxColumna = auxFila.Siguiente
 		}

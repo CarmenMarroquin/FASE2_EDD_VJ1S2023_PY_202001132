@@ -55,12 +55,10 @@ export const Filtros = () => {
                         </select>
                     </div>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-primary" onClick={aplicarFiltros}>Generar Imagen con Filtro</button></center>
+                    <center><button className="btn btn-success" onClick={aplicarFiltros}>Generar Imagen con Filtro</button></center>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-success" onClick={salir}>Salir</button></center>
-                    <br/>
-                    <p className="mt-5 mb-3 text-muted">EDD 201700918</p>
-                    <br/>
+                    <center><button className="btn btn-danger" onClick={salir}>Salir</button></center>
+                    
                   </form>
             </div>
           </div>

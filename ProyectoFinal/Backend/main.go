@@ -101,6 +101,7 @@ func main() {
 		for i := 0; i < len(pedidosNuevos.Pedidos); i++ {
 			ArbolPedidos.InsertarElemento(pedidosNuevos.Pedidos[i].Id_Cliente, pedidosNuevos.Pedidos[i].Nombre_Imagen)
 		}
+		ArbolPedidos.Graficar()
 		ArbolPedidos.RecorridoInorden(ArbolPedidos.Raiz, PedidosCola)
 		return c.JSON(&fiber.Map{
 			"status": 200,
