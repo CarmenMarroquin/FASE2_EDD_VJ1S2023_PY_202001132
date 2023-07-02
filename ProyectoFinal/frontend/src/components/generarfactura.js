@@ -77,12 +77,10 @@ export const GenerarFactura = () => {
                     value={pago}  
                     autoFocus/>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-success" type="submit">Generar Pago</button></center>
+                    <center><button className="btn btn-success" type="submit">Generar Pago</button></center>
                     <br/>
-                    <center><button className="w-50 btn btn-outline-success" onClick={salir}>Salir</button></center>
-                    <br/>
-                    <p className="mt-5 mb-3 text-muted">EDD 201700918</p>
-                    <br/>
+                    <center><button className="btn btn-danger" onClick={salir}>Salir</button></center>
+                  
                   </form>
             </div>
         </div>
